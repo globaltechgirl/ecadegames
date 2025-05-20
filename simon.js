@@ -31,18 +31,21 @@ var started = false;
 var level = 0;
 
 $(document).ready(function () {
-  if (!started) {
-    $("#level-title").text("Level " + level);
-    nextSequence();
-    started = true;
-  }
-});
-
-$(document).keypress(function () {
-  if (!started) {
-    $("#level-title").text("Level " + level);
-    nextSequence();
-    started = true;
+  if ($(window).width() <= 991) {
+    if (!started) {
+      $("#level-title").text("Level " + level);
+      nextSequence();
+      started = true;
+    }
+    
+  } else {
+    $(document).keypress(function () {
+      if (!started) {
+        $("#level-title").text("Level " + level);
+        nextSequence();
+        started = true;
+      }
+    });
   }
 });
 
